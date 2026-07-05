@@ -1,0 +1,13 @@
+# Copy this file to terraform.tfvars, then set your values.
+#
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# Find your public IP with:  curl ifconfig.me
+# Then add /32 to the end (a single-address CIDR).
+
+my_ip_cidr = "203.0.113.4/32" # replace with YOUR ip, e.g. the output of: curl ifconfig.me
+
+# Optional overrides (defaults are fine to start):
+# aws_region   = "us-east-1"
+# project_name = "tf-network-lab"
+# instance_type = "t3.micro"

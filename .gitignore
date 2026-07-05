@@ -1,0 +1,13 @@
+# Terraform working files
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Never commit these
+*.pem
+terraform.tfvars
+*.auto.tfvars
+override.tf
+override.tf.json
