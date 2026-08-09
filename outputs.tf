@@ -38,3 +38,10 @@ output "ssh_to_private" {
   description = "SSH into the private host, jumping through the bastion."
   value       = "ssh -i ${local_sensitive_file.private_key.filename} -J ec2-user@${aws_instance.bastion.public_ip} ec2-user@${aws_instance.private.private_ip}"
 }
+output "s3_bucket" {
+  description = "My-bucket"
+  value       =  aws_s3_bucket.my_bucket.id
+}
+output "github_actions_role_arn" {
+  value = aws_iam_role.github_actions.arn
+}
