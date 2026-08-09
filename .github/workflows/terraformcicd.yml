@@ -18,6 +18,7 @@ jobs:
   #.....................
   lint:
     name: Terraform Lint
+    
     runs-on: ubuntu-latest
 
 
@@ -32,7 +33,6 @@ jobs:
         uses: hashicorp/setup-terraform@v4
 
       - name: Terraform Format Check
-    
         run: terraform fmt -check -recursive
         
       - name: Terraform Init
@@ -93,12 +93,12 @@ jobs:
         run: aws sts get-caller-identity
 
       - name: Terraform Init
-        working-directory: ./terraformawsnetworklab
+    
 
         run: terraform init
 
       - name: Terraform Validate
-        working-directory: ./terraformawsnetworklab
+    
         run: terraform validate
 
       - name: Terraform Plan
