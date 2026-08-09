@@ -62,5 +62,17 @@ resource "aws_instance" "private" {
   vpc_security_group_ids = [aws_security_group.private.id]
   key_name               = aws_key_pair.this.key_name
 
+  user_data = <<-EOF
+               #!/bin/bash
+               dnf update -y
+               dnf install -y httpd
+               systemctl enable httpd
+               systemctl start httpd
+               echo "<h1>Private Web Server</h1>" > /var/www/html/index.html
+               echo "<p>Hostname: $(hostname)</p>" >> /var/www/html/index.html
+               EOF
+
+
+
   tags = { Name = "${var.project_name}-private" }
 }
