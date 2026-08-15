@@ -38,7 +38,7 @@ variable "instance_type" {
 variable "my_ip_cidr" {
   description = "Your public IP in CIDR notation, e.g. 203.0.113.4/32. Only this address may SSH to the bastion."
   type        = string
-   default     = "0.0.0.0/0"
+  default     = "0.0.0.0/0"
 
   validation {
     condition     = can(cidrhost(var.my_ip_cidr, 0))

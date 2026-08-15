@@ -40,7 +40,7 @@ output "ssh_to_private" {
 }
 output "s3_bucket" {
   description = "My-bucket"
-  value       =  aws_s3_bucket.my_bucket.id
+  value       = aws_s3_bucket.my_bucket.id
 }
 output "github_actions_role_arn" {
   value = aws_iam_role.github_actions.arn
