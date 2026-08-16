@@ -70,7 +70,7 @@ jobs:
     needs:
       - tests
 
-    # Only deploy from main
+    # Only and only deploy from main
     if: github.ref == 'refs/heads/main'
 
     steps:
