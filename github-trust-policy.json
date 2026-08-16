@@ -10,8 +10,10 @@
       "Condition": {
         "StringEquals": {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
-        }
-       
+        },
+        "StringLike": {
+  "token.actions.githubusercontent.com:job_workflow_ref": "NPP2024/aws-terraform-network-lab/.github/workflows/terraform.yml@refs/heads/main"
+}
       }
     }
   ]
