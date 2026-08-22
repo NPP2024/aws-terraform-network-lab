@@ -13,6 +13,7 @@ resource "aws_iam_openid_connect_provider" "github" {
     data.tls_certificate.github.certificates[0].sha1_fingerprint
   ]
 }
+
 resource "aws_iam_role" "github_actions" {
   name = "github-actions-terraform-role"
 
@@ -42,6 +43,7 @@ resource "aws_iam_role" "github_actions" {
     ]
   })
 }
+
 resource "aws_iam_role_policy_attachment" "github_actions" {
   role       = aws_iam_role.github_actions.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
