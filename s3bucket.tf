@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-terraform-s3-bucket-2026-unique"
+  bucket = "npp2024-terraform-${random_id.bucket_suffix.hex}"
 
   tags = {
     Name        = "My Terraform S3 Bucket"

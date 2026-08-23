@@ -13,6 +13,7 @@ resource "aws_iam_openid_connect_provider" "github" {
     data.tls_certificate.github.certificates[0].sha1_fingerprint
   ]
 }
+
 resource "aws_iam_role" "github_actions" {
   name = "github-actions-terraform-role"
 
@@ -24,7 +25,7 @@ resource "aws_iam_role" "github_actions" {
         Effect = "Allow"
 
         Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
+          Federated = "arn:aws:iam::975050056830:oidc-provider/token.actions.githubusercontent.com"
         }
 
         Action = "sts:AssumeRoleWithWebIdentity"
@@ -42,6 +43,7 @@ resource "aws_iam_role" "github_actions" {
     ]
   })
 }
+
 resource "aws_iam_role_policy_attachment" "github_actions" {
   role       = aws_iam_role.github_actions.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
